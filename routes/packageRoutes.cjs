@@ -1,3 +1,4 @@
+/*
 const express = require("express");
 const router = express.Router();
 const packageController = require("../controllers/packageController.cjs");
@@ -10,3 +11,4 @@ router.delete("/deletePackage", packageController.deletePackage);
 router.get("/getAll", packageController.getAll);
 
 module.exports = router;
+*/
