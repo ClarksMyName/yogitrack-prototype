@@ -117,9 +117,9 @@ legend { padding: 0 .25rem; }
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.4);  /* or use rgba(0, 0, 0, 0.3) for dark tint */
+  background: rgba(255, 255, 255, 0.4);
   z-index: 0;
-  
+  pointer-events: none;
 }
 
 /* Make sure all layout content appears above the overlay */
@@ -166,4 +166,16 @@ select.form-input {
   background-repeat: no-repeat;
   background-position: right 0.7rem top 50%;
   background-size: 0.65rem auto;
+}
+
+.sidebar {
+  width: 220px;
+  background: #bee6e0;
+  color: #05713d;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 20;
 }
