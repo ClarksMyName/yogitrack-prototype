@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YogiTrack • All-In-One</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="layout--sidebar">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <a class="logo-wrap" href="all-in-one.html">
+      <img src="../images/Logo.png" alt="YogiTrack Logo" class="logo">
+    </a>
+
+    <nav class="nav">
+      <a href="all-in-one.html">All-In-One</a>
+      <a href="instructor.html">Instructors</a>
+      <a href="packages.html">Packages</a>
+      <a href="class-schedule.html">Class Schedule</a>
+      <a href="customers.html">Customers</a>
+      <a href="check-ins.html">Check-ins</a>
+      <a href="../index.html">Log Out</a>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <main style="flex: 1; padding: 2rem; background: #f5f8f8; overflow-y: auto;">
+    <h1>YogiTrack All-In-One</h1>
+    <p style="margin-bottom: 2rem;">Overview of instructors, classes, customers, check-ins, and packages.</p>
+
+    <!-- Top summary cards -->
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+      <div class="card" style="max-width: 100%;">
+        <h2>2</h2>
+        <p>Instructors</p>
+      </div>
+
+      <div class="card" style="max-width: 100%;">
+        <h2>2</h2>
+        <p>Classes</p>
+      </div>
+
+      <div class="card" style="max-width: 100%;">
+        <h2>2</h2>
+        <p>Customers</p>
+      </div>
+
+      <div class="card" style="max-width: 100%;">
+        <h2>3</h2>
+        <p>Check-ins</p>
+      </div>
+
+      <div class="card" style="max-width: 100%;">
+        <h2>6</h2>
+        <p>Packages</p>
+      </div>
+    </section>
+
+    <!-- Instructors -->
+    <section class="card" style="max-width: 100%; margin-bottom: 1.5rem;">
+      <h2>Instructors</h2>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th align="left">Instructor ID</th>
+            <th align="left">Name</th>
+            <th align="left">Email</th>
+            <th align="left">Phone</th>
+            <th align="left">Class</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>I001</td>
+            <td>John Doe</td>
+            <td>john@yoga.com</td>
+            <td>1-123-456-7890</td>
+            <td>Breath work</td>
+          </tr>
+          <tr>
+            <td>I002</td>
+            <td>Jane Doe</td>
+            <td>jane@yoga.com</td>
+            <td>1-345-678-9900</td>
+            <td>Yoga with weights</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Classes -->
+    <section class="card" style="max-width: 100%; margin-bottom: 1.5rem;">
+      <h2>Classes</h2>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th align="left">Class ID</th>
+            <th align="left">Class Name</th>
+            <th align="left">Instructor ID</th>
+            <th align="left">Type</th>
+            <th align="left">Schedule</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A001</td>
+            <td>Breath work</td>
+            <td>I001</td>
+            <td>General</td>
+            <td>Mon, Wed, Fri 09:00 / Sun 11:00</td>
+          </tr>
+          <tr>
+            <td>A002</td>
+            <td>Yoga with weights</td>
+            <td>I002</td>
+            <td>Special</td>
+            <td>Tue, Thu 16:00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Customers -->
+    <section class="card" style="max-width: 100%; margin-bottom: 1.5rem;">
+      <h2>Customers</h2>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th align="left">Customer ID</th>
+            <th align="left">Name</th>
+            <th align="left">Email</th>
+            <th align="left">Phone</th>
+            <th align="left">Class Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Y001</td>
+            <td>Sara Doe</td>
+            <td>sara@yoga.com</td>
+            <td>1-555-789-0001</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Y002</td>
+            <td>Sam Smith</td>
+            <td>sam@yoga.com</td>
+            <td>1-234-567-8900</td>
+            <td>9</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Check-ins -->
+    <section class="card" style="max-width: 100%; margin-bottom: 1.5rem;">
+      <h2>Recent Check-ins</h2>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th align="left">Check-in ID</th>
+            <th align="left">Customer ID</th>
+            <th align="left">Class ID</th>
+            <th align="left">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Y001</td>
+            <td>A001</td>
+            <td>05-05-2025</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Y001</td>
+            <td>A002</td>
+            <td>05-07-2025</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Y002</td>
+            <td>A002</td>
+            <td>05-15-2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Packages -->
+    <section class="card" style="max-width: 100%; margin-bottom: 1.5rem;">
+      <h2>Packages Overview</h2>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th align="left">Package ID</th>
+            <th align="left">Package Name</th>
+            <th align="left">Description</th>
+            <th align="left">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>P001</td>
+            <td>4 Class Pass</td>
+            <td>Valid for 1 month</td>
+            <td>$70.00</td>
+          </tr>
+          <tr>
+            <td>S001</td>
+            <td>4 Class Pass for seniors</td>
+            <td>Valid for 1 month</td>
+            <td>$60.00</td>
+          </tr>
+          <tr>
+            <td>P002</td>
+            <td>10 Class Pass</td>
+            <td>Valid for 3 months</td>
+            <td>$140.00</td>
+          </tr>
+          <tr>
+            <td>S002</td>
+            <td>10 Class Pass for seniors</td>
+            <td>Valid for 3 months</td>
+            <td>$120.00</td>
+          </tr>
+          <tr>
+            <td>P003</td>
+            <td>3 months unlimited</td>
+            <td>Valid for 3 months</td>
+            <td>$400.00</td>
+          </tr>
+          <tr>
+            <td>S003</td>
+            <td>3 months unlimited for seniors</td>
+            <td>Valid for 3 months</td>
+            <td>$360.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

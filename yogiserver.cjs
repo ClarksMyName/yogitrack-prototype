@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
 
+app.use("/instructor", instructorRoutes)
+app.use("/classes", classRoutes)
+app.use("/customers", customerRoutes)
+app.use("/checkins", checkinRoutes)
+app.use("/packages", packageRoutes)
+
 const path = require("path");
 app.use(express.static(path.join(__dirname, "Public")));
 

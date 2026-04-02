@@ -7,5 +7,6 @@ router.get("/getNextId", instructorController.getNextId);
 router.post("/add", instructorController.add);
 router.get("/getInstructorIds", instructorController.getInstructorIds);
 router.delete("/deleteInstructor", instructorController.deleteInstructor);
+router.get("/getAll", instructorController.getAll);
 
 module.exports = router;
