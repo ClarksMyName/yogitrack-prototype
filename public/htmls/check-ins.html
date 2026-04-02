@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YogiTrack • Check-ins</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="layout--sidebar">
+
+  <aside class="sidebar">
+    <a class="logo-wrap" href="dashboard.html">
+      <img src="../images/Logo.png" class="logo">
+    </a>
+
+    <nav class="nav">
+      <a href="instructor.html">Instructors</a>
+      <a href="packages.html">Packages</a>
+      <a href="class-schedule.html">Class Schedule</a>
+      <a href="customers.html">Customers</a>
+      <a href="check-ins.html">Check-ins</a>
+      <a href="../index.html">Log Out</a>
+    </nav>
+  </aside>
+
+  <main class="layout--center">
+    <form class="card" id="checkinForm">
+      <h2>Check-in Details</h2>
+
+      <label>Check-in ID
+        <select id="checkinId" class="form-input">
+          <option value="">-- Select Check-in --</option>
+        </select>
+      </label>
+
+      <label>Customer ID
+        <input type="text" id="customerId">
+      </label>
+
+      <label>Class ID
+        <input type="text" id="classId">
+      </label>
+
+      <label>Date
+        <input type="date" id="datetime">
+      </label>
+
+      <div class="btn-row">
+        <button type="button" class="btn">Search</button>
+        <button type="button" class="btn btn--primary">Add New</button>
+        <button type="button" class="btn">Save</button>
+        <button type="button" class="btn btn--danger">Delete</button>
+        <button type="button" class="btn">Clear</button>
+        <a href="dashboard.html" class="btn">Exit</a>
+      </div>
+
+    </form>
+  </main>
+
+<script src="../js/checkins.js"></script>
+</body>
+</html>

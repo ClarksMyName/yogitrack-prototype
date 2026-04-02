@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YogiTrack • Customers</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="layout--sidebar">
+
+  <aside class="sidebar">
+    <a class="logo-wrap" href="dashboard.html">
+      <img src="../images/Logo.png" class="logo">
+    </a>
+
+    <nav class="nav">
+      <a href="instructor.html">Instructors</a>
+      <a href="packages.html">Packages</a>
+      <a href="class-schedule.html">Class Schedule</a>
+      <a href="customers.html">Customers</a>
+      <a href="check-ins.html">Check-ins</a>
+      <a href="../index.html">Log Out</a>
+    </nav>
+  </aside>
+
+  <main class="layout--center">
+    <form class="card" id="customerForm">
+      <h2>Customer Details</h2>
+
+      <label>Customer ID
+        <select id="customerId" class="form-input">
+          <option value="">-- Select Customer --</option>
+        </select>
+      </label>
+
+      <div class="grid-2">
+        <label>First Name
+          <input type="text" id="firstName">
+        </label>
+        <label>Last Name
+          <input type="text" id="lastName">
+        </label>
+      </div>
+
+      <label>Email
+        <input type="email" id="email">
+      </label>
+
+      <label>Phone
+        <input type="tel" id="phone">
+      </label>
+
+      <label>Address
+        <textarea id="address"></textarea>
+      </label>
+
+      <label>Class Balance
+        <input type="number" id="classBalance">
+      </label>
+
+      <fieldset>
+        <legend>Preferred Contact</legend>
+        <div class="radio-row">
+          <label><input type="radio" name="pref" value="phone">Phone</label>
+          <label><input type="radio" name="pref" value="email">Email</label>
+        </div>
+      </fieldset>
+
+      <div class="btn-row">
+        <button type="button" class="btn">Search</button>
+        <button type="button" class="btn btn--primary">Add New</button>
+        <button type="button" class="btn">Save</button>
+        <button type="button" class="btn btn--danger">Delete</button>
+        <button type="button" class="btn">Clear</button>
+        <a href="dashboard.html" class="btn">Exit</a>
+      </div>
+
+    </form>
+  </main>
+
+<script src="../js/customers.js"></script>
+</body>
+</html>

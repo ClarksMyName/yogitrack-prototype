@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YogiTrack • Class Schedule</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="layout--sidebar">
+
+  <aside class="sidebar">
+    <a class="logo-wrap" href="dashboard.html">
+      <img src="../images/Logo.png" class="logo">
+    </a>
+
+    <nav class="nav">
+      <a href="instructor.html">Instructors</a>
+      <a href="packages.html">Packages</a>
+      <a href="class-schedule.html">Class Schedule</a>
+      <a href="customers.html">Customers</a>
+      <a href="check-ins.html">Check-ins</a>
+      <a href="../index.html">Log Out</a>
+    </nav>
+  </aside>
+
+  <main class="layout--center">
+    <form class="card" id="classForm">
+      <h2>Class Schedule</h2>
+
+      <label>Class ID
+        <select id="classId" class="form-input">
+          <option value="">-- Select Class --</option>
+        </select>
+      </label>
+
+      <label>Class Name
+        <input type="text" id="className">
+      </label>
+
+      <label>Instructor ID
+        <input type="text" id="instructorId">
+      </label>
+
+      <label>Class Type
+        <input type="text" id="classType">
+      </label>
+
+      <label>Description
+        <textarea id="description"></textarea>
+      </label>
+
+      <label>Day & Time
+        <textarea id="daytime" placeholder="Example: Mon 09:00 (45 min)"></textarea>
+      </label>
+
+      <div class="btn-row">
+        <button type="button" class="btn">Search</button>
+        <button type="button" class="btn btn--primary">Add New</button>
+        <button type="button" class="btn">Save</button>
+        <button type="button" class="btn btn--danger">Delete</button>
+        <button type="button" class="btn">Clear</button>
+        <a href="dashboard.html" class="btn">Exit</a>
+      </div>
+
+    </form>
+  </main>
+
+<script src="../js/classes.js"></script>
+</body>
+</html>
