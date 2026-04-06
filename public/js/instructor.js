@@ -1,156 +1,100 @@
-let formMode = "search"; // Tracks the current mode of the form
+const instructorIdSelect = document.getElementById("instructorIdSelect");
+const instructorIdLabel = document.getElementById("instructorIdLabel");
+const instructorIdTextLabel = document.getElementById("instructorIdTextLabel");
+const instructorIdText = document.getElementById("instructorIdText");
 
-// Fetch all instructor IDs and populate the dropdown
-document.addEventListener("DOMContentLoaded", () => {
-  setFormForSearch();
-  initInstructorDropdown();
-  addInstructorDropdownListener();
+const firstnameInput = document.getElementById("firstname") || document.querySelector('input[name="firstname"]');
+const lastnameInput = document.getElementById("lastname") || document.querySelector('input[name="lastname"]');
+const addressInput = document.getElementById("address") || document.querySelector('textarea[name="address"]');
+const phoneInput = document.getElementById("phone") || document.querySelector('input[name="phone"]');
+const emailInput = document.getElementById("email") || document.querySelector('input[name="email"]');
 
-});
+let instructorsData = [];
 
-//SEARCH
-document.getElementById("searchBtn").addEventListener("click", async () => {
-  clearInstructorForm();
-  setFormForSearch();
-  initInstructorDropdown();
-});
-
-
-//ADD
-document.getElementById("addBtn").addEventListener("click", async () => {
-  setFormForAdd();
-});
-
-//SAVE
-document.getElementById("saveBtn").addEventListener("click", async () => {
-  if (formMode === "add") {
-    //Get max ID for instructorId
-    const res = await fetch("/api/instructor/getNextId");
-    const {nextId } = await res.json();
-    document.getElementById("instructorIdText").value = nextId;
-
-    const form = document.getElementById("instructorForm");
-
-    const instructorData = {
-      instructorId: nextId,
-      firstname: form.firstname.value.trim(),
-      lastname: form.lastname.value.trim(),
-      address: form.address.value.trim(),
-      phone: form.phone.value.trim(),
-      email: form.email.value.trim(),
-      preferredContact: form.pref[0].checked ? "phone" : "email",
-    };
-    try {
-      const res = await fetch("/api/instructor/add", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(instructorData),
-      });
-
-      const result = await res.json();
-      if (!res.ok)
-        throw new Error(result.message || "Failed to add instructor");
-
-      alert(`✅ Instructor ${instructorData.instructorId} added successfully!`);
-      form.reset();
-    } catch (err) {
-      alert("❌ Error: " + err.message);
-    }
-  }
-});
-
-//DELETE
-document.getElementById("deleteBtn").addEventListener("click", async () => {
-  var select = document.getElementById("instructorIdSelect");
-  var instructorId = select.value.split(":")[0];
-
-  const response = await fetch(
-    `/api/instructor/deleteInstructor?instructorId=${instructorId}`, {
-      method: "DELETE"
-    });
-
-  if (!response.ok) {
-    throw new Error("Instructor delete failed");
-  } else {
-    alert(`Instructor with id ${instructorId} successfully deleted`);
-    clearInstructorForm();
-    initInstructorDropdown();
-    
-  }
-});
-
-async function initInstructorDropdown() {
-  const select = document.getElementById("instructorIdSelect");
+async function loadInstructors() {
   try {
     const response = await fetch("/api/instructor/getInstructorIds");
-    const instructorIds = await response.json();
+    if (!response.ok) throw new Error("Failed to load instructor IDs");
 
-    instructorIds.forEach((instr) => {
-      const option = document.createElement("option");
-      option.value = instr.instructorId;
-      option.textContent = `${instr.instructorId}:${instr.firstname} ${instr.lastname}`;
-      select.appendChild(option);
-    });
-  } catch (err) {
-    console.err("Failed to load instructor IDs: ", err);
+    instructorsData = await response.json();
+    populateInstructorDropdown();
+  } catch (error) {
+    console.error("Error loading instructors:", error);
   }
 }
 
-async function addInstructorDropdownListener() {
-  const form = document.getElementById("instructorForm");
-  const select = document.getElementById("instructorIdSelect");
-  select.addEventListener("change", async () => {
-    var instructorId = select.value.split(":")[0];
-    console.log(instructorId);
-    try {
-      const res = await fetch(
-        `/api/instructor/getInstructor?instructorId=${instructorId}`
-      );
-      if (!res.ok) throw new Error("Instructor search failed");
+function populateInstructorDropdown() {
+  instructorIdSelect.innerHTML = '<option value=""> -- Select Instructor Id --</option>';
 
-      const data = await res.json();
-      console.log(data);
-      if (!data || Object.keys(data).length === 0) {
-        alert("No instructor found");
-        return;
-      }
-
-      //Fill form with data
-      form.firstname.value = data.firstname || "";
-      form.lastname.value = data.lastname || "";
-      form.address.value = data.address || "";
-      form.phone.value = data.phone || "";
-      form.email.value = data.email || "";
-
-      if (data.preferredContact === "phone") {
-        form.pref[0].checked = true;
-      } else form.pref[1].checked = true;
-    } catch (err) {
-      alert(`Error searching package: ${instructorId} - ${err.message}`);
-    }
+  instructorsData.forEach(instructor => {
+    const option = document.createElement("option");
+    option.value = instructor.instructorId;
+    option.textContent = `${instructor.instructorId} - ${instructor.firstname} ${instructor.lastname}`;
+    instructorIdSelect.appendChild(option);
   });
 }
 
+async function displayInstructorDetails(instructorId) {
+  if (!instructorId) {
+    clearInstructorForm();
+    return;
+  }
+
+  try {
+    const response = await fetch(`/api/instructor/getInstructor?instructorId=${encodeURIComponent(instructorId)}`);
+    if (!response.ok) throw new Error("Failed to load instructor details");
+
+    const instructor = await response.json();
+
+    instructorIdText.value = instructor.instructorId || "";
+    if (firstnameInput) firstnameInput.value = instructor.firstname || "";
+    if (lastnameInput) lastnameInput.value = instructor.lastname || "";
+    if (addressInput) addressInput.value = instructor.address || "";
+    if (phoneInput) phoneInput.value = instructor.phone || instructor.phoneNumber || "";
+    if (emailInput) emailInput.value = instructor.email || "";
+
+    const preferred = instructor.preferredContact;
+    if (preferred) {
+      const radio = document.querySelector(`input[name="pref"][value="${preferred}"]`);
+      if (radio) radio.checked = true;
+    }
+  } catch (error) {
+    console.error("Error loading instructor details:", error);
+  }
+}
+
 function clearInstructorForm() {
-  document.getElementById("instructorForm").reset(); // Clears all inputs including text, textarea, and unchecks radio buttons
-  document.getElementById("instructorIdSelect").innerHTML = "";
+  instructorIdSelect.value = "";
+  instructorIdText.value = "";
+
+  if (firstnameInput) firstnameInput.value = "";
+  if (lastnameInput) lastnameInput.value = "";
+  if (addressInput) addressInput.value = "";
+  if (phoneInput) phoneInput.value = "";
+  if (emailInput) emailInput.value = "";
+
+  document.querySelectorAll('input[name="pref"]').forEach(radio => {
+    radio.checked = false;
+  });
 }
 
-function setFormForSearch() {
-  formMode = "search";
-  //toggle back to search mode
-  document.getElementById("instructorIdLabel").style.display = "block"; // Show dropdown
-  document.getElementById("instructorIdTextLabel").style.display = "none"; // Hide text input
-  document.getElementById("instructorIdText").value = "";
-  document.getElementById("instructorIdText").style.display = "none";
-  document.getElementById("instructorForm").reset();
+function toggleInstructorIdMode(showTextField) {
+  if (!instructorIdLabel || !instructorIdTextLabel || !instructorIdText) return;
+
+  instructorIdLabel.style.display = showTextField ? "none" : "block";
+  instructorIdTextLabel.style.display = showTextField ? "block" : "none";
+  instructorIdText.hidden = !showTextField;
 }
 
-function setFormForAdd() {
-  formMode = "add";
-    //hide the instructor id drop down and label
-  document.getElementById("instructorIdLabel").style.display = "none";
-  document.getElementById("instructorIdTextLabel").style.display = "block";
-  document.getElementById("instructorIdText").value = "";
-  document.getElementById("instructorForm").reset();
+if (instructorIdSelect) {
+  instructorIdSelect.addEventListener("change", function () {
+    displayInstructorDetails(this.value);
+  });
 }
+
+window.clearInstructorForm = clearInstructorForm;
+
+document.addEventListener("DOMContentLoaded", () => {
+  toggleInstructorIdMode(false);
+  loadInstructors();
+});

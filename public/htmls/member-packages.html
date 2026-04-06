@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>YogiTrack • Class Schedule</title>
+  <title>YogiTrack • Packages</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -15,50 +15,38 @@
 
     <nav class="nav">
       <nav class="nav">
-  <a href="all-in-one.html">All-In-One</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="instructor.html">Instructors</a>
-  <a href="packages.html">Packages</a>
-  <a href="class-schedule.html">Class Schedule</a>
-  <a href="customers.html">Customers</a>
-  <a href="check-ins.html">Check-ins</a>
-  <a href="roster.html">Roster</a>
-  <a href="profile.html">Profile</a>
+  <a href="member-dashboard.html">Dashboard</a>
+  <a href="member-packages.html">Packages</a>
+  <a href="member-class-schedule.html">Class Schedule</a>
+  <a href="member-check-ins.html">Check-ins</a>
+      <a href="member-profile.html">Profile</a>
   <a href="/logout">Log Out</a>
 </nav>
     </nav>
   </aside>
 
   <main class="layout--center">
-    <form class="card" id="classForm">
-      <h2>Class Schedule</h2>
+    <form class="card" id="packageForm">
+      <h2>Package Details</h2>
 
-      <label>Class ID
-        <select id="classId" class="form-input">
-          <option value="">-- Select Class --</option>
+      <label>Package ID
+        <select id="packageId" class="form-input">
+          <option value="">-- Select Package --</option>
         </select>
       </label>
 
-      <label>Class Name
-        <input type="text" id="className">
-      </label>
-
-      <label>Instructor ID
-        <input type="text" id="instructorId">
-      </label>
-
-      <label>Class Type
-        <input type="text" id="classType">
+      <label>Package Name
+        <input type="text" id="packageName">
       </label>
 
       <label>Description
         <textarea id="description"></textarea>
       </label>
 
-      <label>Day & Time
-        <textarea id="daytime" placeholder="Example: Mon 09:00 (45 min)"></textarea>
+      <label>Price
+        <input type="number" id="price">
       </label>
-
+<!--
       <div class="btn-row">
         <button type="button" class="btn">Search</button>
         <button type="button" class="btn btn--primary">Add New</button>
@@ -67,10 +55,10 @@
         <button type="button" class="btn">Clear</button>
         <a href="dashboard.html" class="btn">Exit</a>
       </div>
-
+    -->
     </form>
   </main>
 
-<script src="../js/classes.js"></script>
+<script src="../js/packages.js"></script>
 </body>
 </html>

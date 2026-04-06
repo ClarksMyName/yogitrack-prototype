@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YogiTrack • Member Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="layout--sidebar">
+  <aside class="sidebar">
+    <a class="logo-wrap" href="member-dashboard.html">
+      <img src="../images/Logo.png" alt="YogiTrack Logo" class="logo">
+    </a>
+
+    <nav class="nav">
+      <nav class="nav">
+  <a href="member-dashboard.html">Dashboard</a>
+  <a href="member-packages.html">Packages</a>
+  <a href="member-class-schedule.html">Class Schedule</a>
+  <a href="member-check-ins.html">Check-ins</a>
+      <a href="member-profile.html">Profile</a>
+  <a href="/logout">Log Out</a>
+</nav>
+    </nav>
+  </aside>
+
+  <main style="flex: 1; padding: 2rem; overflow-y: auto;">
+    <h1 id="welcomeMessage">Welcome</h1>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0 2rem;">
+      <div class="card" style="max-width: 100%;">
+        <h2 id="classBalance">0</h2>
+        <p>Current Class Balance</p>
+      </div>
+
+      <div class="card" style="max-width: 100%;">
+        <h2 id="totalAttended">0</h2>
+        <p>Total Classes Attended</p>
+      </div>
+    </section>
+
+    <section class="card" style="max-width: 100%; margin-bottom: 1.5rem;">
+      <h2>Past Check-ins</h2>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th align="left">Date</th>
+            <th align="left">Class</th>
+          </tr>
+        </thead>
+        <tbody id="pastCheckinsBody">
+          <tr>
+            <td colspan="2">No past check-ins found.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card" style="max-width: 100%;">
+      <h2>Upcoming Classes</h2>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th align="left">Class</th>
+            <th align="left">Day</th>
+            <th align="left">Time</th>
+            <th align="left">Duration</th>
+          </tr>
+        </thead>
+        <tbody id="upcomingClassesBody">
+          <tr>
+            <td colspan="4">No upcoming classes found.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="../js/member-dashboard.js"></script>
+</body>
+</html>

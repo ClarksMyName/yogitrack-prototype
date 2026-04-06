@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YogiTrack • Roster</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="layout--sidebar">
+  <aside class="sidebar">
+    <a class="logo-wrap" href="all-in-one.html">
+      <img src="../images/Logo.png" class="logo" alt="YogiTrack Logo">
+    </a>
+    <nav class="nav">
+      <nav class="nav">
+  <a href="all-in-one.html">All-In-One</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="instructor.html">Instructors</a>
+  <a href="packages.html">Packages</a>
+  <a href="class-schedule.html">Class Schedule</a>
+  <a href="customers.html">Customers</a>
+  <a href="check-ins.html">Check-ins</a>
+  <a href="roster.html">Roster</a>
+  <a href="profile.html">Profile</a>
+  <a href="/logout">Log Out</a>
+</nav>
+    </nav>
+  </aside>
+
+  <main style="flex:1; padding:2rem;">
+    <div class="card" style="max-width:100%;">
+      <h2>Overall Roster</h2>
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th align="left">Username</th>
+            <th align="left">Customer ID</th>
+            <th align="left">Profile Name</th>
+            <th align="left">Class Balance</th>
+          </tr>
+        </thead>
+        <tbody id="rosterBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="../js/roster.js"></script>
+</body>
+</html>

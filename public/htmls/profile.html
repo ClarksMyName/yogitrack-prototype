@@ -2,20 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>YogiTrack • Check-ins</title>
+  <title>YogiTrack • Profile</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body class="layout--sidebar">
-
   <aside class="sidebar">
-    <a class="logo-wrap" href="packages.html">
+    <a class="logo-wrap" href="member-dashboard.html">
       <img src="../images/Logo.png" class="logo" alt="YogiTrack Logo">
     </a>
 
     <nav class="nav">
-      <nav class="nav">
-  <a href="all-in-one.html">All-In-One</a>
+      <a href="all-in-one.html">All-In-One</a>
   <a href="dashboard.html">Dashboard</a>
   <a href="instructor.html">Instructors</a>
   <a href="packages.html">Packages</a>
@@ -25,35 +22,39 @@
   <a href="roster.html">Roster</a>
   <a href="profile.html">Profile</a>
   <a href="/logout">Log Out</a>
-</nav>
     </nav>
   </aside>
 
   <main class="layout--center">
-    <form class="card" id="checkinForm">
-      <h2>Class Check-in</h2>
+    <form class="card" id="profileForm">
+      <h2>My Profile</h2>
 
-      <label>Class Name
-        <select id="className" class="form-input">
-          <option value="">-- Select Class --</option>
-        </select>
+      <label>Nickname / First Name
+        <input type="text" id="firstName">
       </label>
 
-      <label>Customer ID
-        <input type="text" id="customerId" readonly style="background-color: #e9ecef; cursor: not-allowed;">
+      <label>Last Name
+        <input type="text" id="lastName">
       </label>
 
-      <label>Date
-        <input type="date" id="datetime">
+      <label>Email
+        <input type="email" id="email">
+      </label>
+
+      <label>Phone
+        <input type="tel" id="phone">
+      </label>
+
+      <label>Password
+        <input type="password" id="password" placeholder="Enter new password">
       </label>
 
       <div class="btn-row">
-        <button type="button" class="btn btn--primary" id="saveBtn">Check In</button>
-        <button type="button" class="btn" id="clearBtn">Clear</button>
+        <button type="button" class="btn btn--primary" id="saveProfileBtn">Save Profile</button>
       </div>
     </form>
   </main>
 
-  <script src="../js/checkins.js"></script>
+  <script src="../js/profile.js"></script>
 </body>
 </html>

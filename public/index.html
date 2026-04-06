@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>YogiTrack • Welcome</title>
+  <title>YogiTrack • Login</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="layout--center">
@@ -10,7 +10,48 @@
     <img src="images/Logo.png" alt="YogiTrack Logo" class="logo">
     <h1>Welcome to YogiTrack</h1>
     <p>Your all-in-one studio management companion.</p>
-    <a class="btn btn--primary" href="htmls/dashboard.html">Log&nbsp;in</a>
+
+    <form action="/login" method="POST" style="margin-top: 1.5rem; text-align: left;">
+      <label for="username">
+        Username
+        <input type="text" id="username" name="username" required>
+      </label>
+
+      <label for="password">
+        Password
+        <input type="password" id="password" name="password" required>
+      </label>
+
+      <div class="btn-row">
+        <button type="submit" class="btn btn--primary">Log In</button>
+        <button type="button" class="btn" onclick="toggleRegisterForm()">Create New User</button>
+      </div>
+    </form>
+
+    <form id="registerForm" action="/register" method="POST" style="margin-top: 2rem; text-align: left; display: none;">
+      <h2>Create New User</h2>
+
+      <label for="newUsername">
+        Username
+        <input type="text" id="newUsername" name="username" required>
+      </label>
+
+      <label for="newPassword">
+        Password
+        <input type="password" id="newPassword" name="password" required>
+      </label>
+
+      <div class="btn-row">
+        <button type="submit" class="btn btn--primary">Create Account</button>
+      </div>
+    </form>
   </main>
+
+  <script>
+    function toggleRegisterForm() {
+      const form = document.getElementById("registerForm");
+      form.style.display = form.style.display === "none" ? "block" : "none";
+    }
+  </script>
 </body>
 </html>

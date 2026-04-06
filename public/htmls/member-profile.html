@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YogiTrack • Profile</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="layout--sidebar">
+  <aside class="sidebar">
+    <a class="logo-wrap" href="member-dashboard.html">
+      <img src="../images/Logo.png" class="logo" alt="YogiTrack Logo">
+    </a>
+
+    <nav class="nav">
+      <a href="member-dashboard.html">Dashboard</a>
+      <a href="member-packages.html">Packages</a>
+      <a href="member-class-schedule.html">Class Schedule</a>
+      <a href="member-check-ins.html">Check-ins</a>
+      <a href="member-profile.html">Profile</a>
+      <a href="/logout">Log Out</a>
+    </nav>
+  </aside>
+
+  <main class="layout--center">
+    <form class="card" id="profileForm">
+      <h2>My Profile</h2>
+
+      <label>Nickname / First Name
+        <input type="text" id="firstName">
+      </label>
+
+      <label>Last Name
+        <input type="text" id="lastName">
+      </label>
+
+      <label>Email
+        <input type="email" id="email">
+      </label>
+
+      <label>Phone
+        <input type="tel" id="phone">
+      </label>
+
+      <label>Password
+        <input type="password" id="password" placeholder="Enter new password">
+      </label>
+
+      <div class="btn-row">
+        <button type="button" class="btn btn--primary" id="saveProfileBtn">Save Profile</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="../js/profile.js"></script>
+</body>
+</html>
