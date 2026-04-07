@@ -15,10 +15,13 @@ const Sale = require("./models/saleModel.cjs");
 
 const instructorRoutes = require("./routes/instructorRoutes.cjs");
 
-const MONGODB_URI =
-  process.env.MONGODB_URI || "PASTE_YOUR_MONGODB_ATLAS_CONNECTION_STRING_HERE";
+const MONGODB_URI = process.env.MONGODB_URI;
 
-// MongoDB connection
+mongoose.connect(MONGODB_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("MongoDB connection error:", err.message));
+
+  // MongoDB connection
 mongoose.connect(MONGODB_URI)
   .then(() => {
     console.log("MongoDB connected");
