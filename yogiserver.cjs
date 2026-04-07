@@ -31,10 +31,10 @@ mongoose.connect(MONGODB_URI)
   });
 
 // Static assets
-app.use("/data", express.static(path.join(__dirname, "Public", "data")));
-app.use("/css", express.static(path.join(__dirname, "Public", "css")));
-app.use("/js", express.static(path.join(__dirname, "Public", "js")));
-app.use("/images", express.static(path.join(__dirname, "Public", "images")));
+app.use("/data", express.static(path.join(__dirname, "public", "data")));
+app.use("/css", express.static(path.join(__dirname, "public", "css")));
+app.use("/js", express.static(path.join(__dirname, "public", "js")));
+app.use("/images", express.static(path.join(__dirname, "public", "images")));
 
 // Body parsing
 app.use(express.json());
@@ -68,13 +68,13 @@ function requireRole(allowedRoles) {
   };
 }
 
-// Public entry pages
+// public entry pages
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.get("/index.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // Existing route modules
@@ -449,60 +449,60 @@ app.post("/api/packages/assign", requireRole(["admin"]), async (req, res) => {
 
 // PAGE ROUTES - ADMIN
 app.get("/htmls/all-in-one.html", requireRole(["admin"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "all-in-one.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "all-in-one.html"));
 });
 
 app.get("/htmls/dashboard.html", requireRole(["admin"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "dashboard.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "dashboard.html"));
 });
 
 app.get("/htmls/instructor.html", requireRole(["admin"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "instructor.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "instructor.html"));
 });
 
 app.get("/htmls/customers.html", requireRole(["admin"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "customers.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "customers.html"));
 });
 
 app.get("/htmls/packages.html", requireRole(["admin"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "packages.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "packages.html"));
 });
 
 app.get("/htmls/class-schedule.html", requireRole(["admin"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "class-schedule.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "class-schedule.html"));
 });
 
 app.get("/htmls/check-ins.html", requireRole(["admin"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "check-ins.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "check-ins.html"));
 });
 
 app.get("/htmls/roster.html", requireRole(["admin"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "roster.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "roster.html"));
 });
 
 app.get("/htmls/profile.html", requireRole(["admin"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "profile.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "profile.html"));
 });
 
 // PAGE ROUTES - MEMBER
 app.get("/htmls/member-dashboard.html", requireRole(["member"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "member-dashboard.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "member-dashboard.html"));
 });
 
 app.get("/htmls/member-packages.html", requireRole(["member"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "member-packages.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "member-packages.html"));
 });
 
 app.get("/htmls/member-class-schedule.html", requireRole(["member"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "member-class-schedule.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "member-class-schedule.html"));
 });
 
 app.get("/htmls/member-check-ins.html", requireRole(["member"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "member-check-ins.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "member-check-ins.html"));
 });
 
 app.get("/htmls/member-profile.html", requireRole(["member"]), (req, res) => {
-  res.sendFile(path.join(__dirname, "Public", "htmls", "member-profile.html"));
+  res.sendFile(path.join(__dirname, "public", "htmls", "member-profile.html"));
 });
 
 // Catch-all for protected html pages
