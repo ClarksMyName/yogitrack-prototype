@@ -17,11 +17,11 @@ const instructorRoutes = require("./routes/instructorRoutes.cjs");
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-mongoose.connect(MONGODB_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err.message));
+if (!MONGODB_URI) {
+  console.error("MongoDB connection error: MONGODB_URI is not set");
+  process.exit(1);
+}
 
-  // MongoDB connection
 mongoose.connect(MONGODB_URI)
   .then(() => {
     console.log("MongoDB connected");
